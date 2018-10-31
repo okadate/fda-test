@@ -10,7 +10,7 @@ All that is needed is a Python 3 installation with [numpy](https://www.numpy.org
 
 ## Running the tests
 
-To see if it all working, try running the NPD nonlinear and tangent linear model (requires matplotlib)
+To see if it is all working, try running the NPD nonlinear and tangent linear model (requires matplotlib)
 ```
 python3 NPZmodel.py
 ```
@@ -21,8 +21,12 @@ python3 dotproduct_test.py
 
 ## Authors
 
-* **Jann Paul Mattern** [jpmattern](https://github.com/jpmattern)
+* Jann Paul Mattern [jpmattern](https://github.com/jpmattern)
 
 ## References
 
 Mattern, J. P. and C. A. Edwards (in press), *Journal of Geophysical Research -- Oceans*, A simple difference quotient-based approximation for biogeochemical tangent linear and adjoint models.
+
+## License
+
+This project is licensed under the Apache License - see the [LICENSE.md](LICENSE.md) file for details.
