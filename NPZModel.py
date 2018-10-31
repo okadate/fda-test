@@ -16,9 +16,12 @@ class NPZModel(object):
     
 Methods
 -------
-run_nl: Run the nonlinear model.
-run_tl: Run the tangent linaer model.
-run_ad: Run the adjoint model.
+run_nl: 
+    Run the nonlinear model.
+run_tl: 
+    Run the tangent linaer model.
+run_ad: 
+    Run the adjoint model.
     '''
     def __init__(self, delta_t=0.01, lightparameters=None,
                  lightresponse=None, nutrientuptake=None, grazing=None, 

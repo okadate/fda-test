@@ -10,7 +10,7 @@ All that is needed is a Python 3 installation with [numpy](https://www.numpy.org
 
 ## Running the tests
 
-To see if it is all working, try running the NPD nonlinear and tangent linear model (requires matplotlib)
+To see if it is all working, try running the NPZ nonlinear and tangent linear model (requires matplotlib):
 ```
 python3 NPZmodel.py
 ```
