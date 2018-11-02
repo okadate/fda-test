@@ -243,7 +243,7 @@ x_nl_history: array
     #
     
     # the FDA-based tangent linear phytoplankton growth function is written out 
-    # explicitly
+    # explicitly, all others use the _generic_tl function below
     def p_growth_tl(self, x_nl, x_tl):
         x_pos = np.zeros(4)
         x_neg = np.zeros(4)
@@ -272,7 +272,10 @@ x_nl_history: array
         
         return x_tl
     
-    def generic_tl(self, generic_nl, x_nl, x_tl):
+    # A function providing the FDA-based tangent linear code for any 
+    # nonlinear model segment function (generic_nl).
+    # For usage see definitions of z_grazing_tl, p_loss_tl, etc. below.
+    def _generic_tl(self, generic_nl, x_nl, x_tl):
         x_pos = np.zeros(4)
         x_neg = np.zeros(4)
         
@@ -301,13 +304,13 @@ x_nl_history: array
         return x_tl
     
     def z_grazing_tl(self, x_nl, x_tl):
-        return self.generic_tl(self.z_grazing, x_nl, x_tl)
+        return self._generic_tl(self.z_grazing, x_nl, x_tl)
         
     def p_loss_tl(self, x_nl, x_tl):
-        return self.generic_tl(self.p_loss, x_nl, x_tl)
+        return self._generic_tl(self.p_loss, x_nl, x_tl)
         
     def z_loss_tl(self, x_nl, x_tl):
-        return self.generic_tl(self.z_loss, x_nl, x_tl)
+        return self._generic_tl(self.z_loss, x_nl, x_tl)
         
     def run_tl(self, npz_ini, x_tl_ini, num_t):        
         '''Run the FDA-based tangent linear model.
@@ -384,7 +387,10 @@ x_tl_history: array
     # the FDA-based adjoint (ad) code
     #
     
-    def generic_ad(self, generic_nl, ivars_in, x_nl, x_ad, x_nl_ref):
+    # A function providing the FDA-based adjoint code for any 
+    # nonlinear model segment function (generic_nl).
+    # For usage see definitions of p_growth_ad, z_grazing_ad etc. below.
+    def _generic_ad(self, generic_nl, ivars_in, x_nl, x_ad, x_nl_ref):
         # the indices of the variables that 
         # act as input 
         
@@ -419,19 +425,19 @@ x_tl_history: array
     
     # for p_growth: light, N, and P act as input
     def p_growth_ad(self, x_nl, x_ad, x_nl_ref):
-        return self.generic_ad(self.p_growth, (i_irr,i_nut,i_phy), x_nl, x_ad, x_nl_ref)
+        return self._generic_ad(self.p_growth, (i_irr,i_nut,i_phy), x_nl, x_ad, x_nl_ref)
     
     # for z_grazing: P and Z act as input
     def z_grazing_ad(self, x_nl, x_ad, x_nl_ref):
-        return self.generic_ad(self.z_grazing, (i_phy,i_zoo), x_nl, x_ad, x_nl_ref)
+        return self._generic_ad(self.z_grazing, (i_phy,i_zoo), x_nl, x_ad, x_nl_ref)
     
     # for p_loss: P acts as input
     def p_loss_ad(self, x_nl, x_ad, x_nl_ref):
-        return self.generic_ad(self.p_loss, (i_phy,), x_nl, x_ad, x_nl_ref)
+        return self._generic_ad(self.p_loss, (i_phy,), x_nl, x_ad, x_nl_ref)
     
     # for z_loss: Z acts as input
     def z_loss_ad(self, x_nl, x_ad, x_nl_ref):
-        return self.generic_ad(self.z_loss, (i_zoo,), x_nl, x_ad, x_nl_ref)
+        return self._generic_ad(self.z_loss, (i_zoo,), x_nl, x_ad, x_nl_ref)
     
     def run_ad(self, npz_ini, x_ad_ini, num_t=None, x_nl_history=None):
         '''Run the FDA-based adjoint model.
