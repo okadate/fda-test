@@ -25,7 +25,7 @@ python3 dotproduct_test.py
 
 ## References
 
-Mattern, J. P. and C. A. Edwards (in press), *Journal of Geophysical Research -- Oceans*, A simple difference quotient-based approximation for biogeochemical tangent linear and adjoint models.
+Mattern, J. P. and C. A. Edwards (2018), *Journal of Geophysical Research -- Oceans*, A simple difference quotient-based approximation for biogeochemical tangent linear and adjoint models, [doi:10.1029/2018JC014283](https://dx.doi.org/10.1029/2018JC014283).
 
 ## License
 
