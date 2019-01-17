@@ -36,7 +36,7 @@ for num_t in (1,3,10,30,100,300,1000):
     x_tl = np.random.uniform(size=4, low=-1.0, high=1.0)
     x_ad = np.random.uniform(size=4, low=-1.0, high=1.0)
     
-    # compute the results of tangt linear and adjoint models
+    # compute the results of tangent linear and adjoint models
     res_tl = m.run_tl(npz_ini=npz_ini, x_tl_ini=x_tl, num_t=num_t)[1][-1,:]
     res_ad = m.run_ad(npz_ini=npz_ini, x_ad_ini=x_ad, num_t=num_t)[1][0,:]
     

@@ -391,9 +391,6 @@ x_tl_history: array
     # nonlinear model segment function (generic_nl).
     # For usage see definitions of p_growth_ad, z_grazing_ad etc. below.
     def _generic_ad(self, generic_nl, ivars_in, x_nl, x_ad, x_nl_ref):
-        # the indices of the variables that 
-        # act as input 
-        
         
         # Note that nonlinear reference 
         # solution for the unperturbed 
