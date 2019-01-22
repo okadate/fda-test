@@ -10,7 +10,7 @@ of h_tl and h_ad.
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from NPZModel import NPZModel
+from npzmodel import NPZModel
 
 m = NPZModel()
 num_t = 10

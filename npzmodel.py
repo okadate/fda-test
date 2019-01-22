@@ -3,9 +3,6 @@
 import modelcomponents
 import numpy as np
 
-#TODO improve default parameters
-#TODO different ways to handle light 
-
 i_irr = 0
 i_nut = 1
 i_phy = 2
@@ -19,7 +16,7 @@ Methods
 run_nl: 
     Run the nonlinear model.
 run_tl: 
-    Run the tangent linaer model.
+    Run the tangent linear model.
 run_ad: 
     Run the adjoint model.
     '''
